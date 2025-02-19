@@ -5,13 +5,30 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	@include mobile {
+		flex-direction: column;
+		gap: 36px;
+		padding-bottom: 36px;
+		text-align: center;
+	}
 }
 
 .avatar-row {
 	display: flex;
+	align-items: center;
+
+	@include mobile {
+		flex-direction: column;
+		gap: 22px;
+	}
 }
 .avatar {
 	margin-right: 30px;
+
+	@include mobile {
+		margin-right: 0;
+	}
 	img {
 		border-radius: 50%;
 	}
@@ -26,16 +43,28 @@
 		gap: 18px;
 		align-items: baseline;
 		margin-bottom: 16px;
+
+		@include mobile {
+			margin-bottom: 14px;
+		}
 	}
 	&__title {
 		font-weight: 500;
 		font-size: 42px;
 		line-height: 114%;
+
+		@include mobile {
+			font-size: 27px;
+		}
 	}
 	&__sub-title {
 		font-weight: 400;
 		font-size: 18px;
 		color: #fff;
+
+		@include mobile {
+			font-size: 14px;
+		}
 	}
 }
 

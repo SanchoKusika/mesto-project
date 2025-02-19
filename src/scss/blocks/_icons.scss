@@ -1,8 +1,3 @@
-.icon {
-	fill: transparent;
-	stroke: transparent;
-}
-
 .icon--edit-button {
 	stroke: #fff;
 	height: 24px;
@@ -22,7 +17,30 @@
 
 	transition: all 0.2s ease-in;
 
+	@include mobile {
+		width: 100%;
+		height: 100px;
+	}
+
 	&:hover {
 		opacity: 0.6;
+	}
+}
+
+.icon--heart {
+	stroke: #000;
+	fill: transparent;
+	width: 22px;
+	height: 19px;
+
+	transition: all 0.2s ease-in;
+
+	&:hover {
+		opacity: 0.5;
+	}
+
+	&:active {
+		opacity: 1;
+		fill: #000;
 	}
 }
