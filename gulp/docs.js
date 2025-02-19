@@ -92,15 +92,15 @@ gulp.task('html:docs', function () {
 					],
 				})
 			)
-			.pipe(
-				webpHTML({
-					extensions: ['jpg', 'jpeg', 'png', 'gif', 'webp'],
-					retina: {
-						1: '',
-						2: '@2x',
-					},
-				})
-			)
+			// .pipe(
+			// 	webpHTML({
+			// 		extensions: ['jpg', 'jpeg', 'png', 'gif', 'webp'],
+			// 		retina: {
+			// 			1: '',
+			// 			2: '@2x',
+			// 		},
+			// 	})
+			// )
 			.pipe(htmlclean())
 			.pipe(gulp.dest('./docs/'))
 	);
@@ -139,14 +139,14 @@ gulp.task('images:docs', function () {
 		gulp
 			.src(['./src/img/**/*', '!./src/img/svgicons/**/*'])
 			.pipe(changed('./docs/img/'))
-			.pipe(
-				imagemin([
-					imageminWebp({
-						quality: 85,
-					}),
-				])
-			)
-			.pipe(rename({ extname: '.webp' }))
+			// .pipe(
+			// 	imagemin([
+			// 		imageminWebp({
+			// 			quality: 85,
+			// 		}),
+			// 	])
+			// )
+			// .pipe(rename({ extname: '.webp' }))
 			.pipe(gulp.dest('./docs/img/'))
 			.pipe(gulp.src('./src/img/**/*'))
 			.pipe(changed('./docs/img/'))

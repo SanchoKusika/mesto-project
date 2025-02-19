@@ -2,3 +2,27 @@
 	fill: transparent;
 	stroke: transparent;
 }
+
+.icon--edit-button {
+	stroke: #fff;
+	height: 24px;
+	width: 24px;
+
+	transition: all 0.2s ease-in;
+
+	&:hover {
+		opacity: 0.6;
+	}
+}
+
+.icon--add-button {
+	stroke: #fff;
+	width: 150px;
+	height: 50px;
+
+	transition: all 0.2s ease-in;
+
+	&:hover {
+		opacity: 0.6;
+	}
+}
