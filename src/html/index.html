@@ -21,6 +21,33 @@
 		</div>
 	</main>
 	@@include('blocks/footer.html')
+	<div class="modal" id="edit-modal">
+		<div class="modal__content">
+			<h2>Редактировать профиль</h2>
+			<input type="text" id="name" placeholder="Имя" />
+			<input type="text" id="job" placeholder="Укажите профессию" />
+			<button id="save-profile" class="close-modal">Сохранить</button>
+			<button class="close">
+				<svg class="icon icon--close-icon">
+					<use href="./img/svgsprite/sprite.symbol.svg#close-icon"></use>
+				</svg>
+			</button>
+		</div>
+	</div>
+
+	<div class="modal" id="add-modal">
+		<div class="modal__content">
+			<h2>Новое место</h2>
+			<input type="text" id="place-name" placeholder="Название" />
+			<input type="text" id="place-url" placeholder="Ссылка на картинку" />
+			<button id="save-place" class="close-modal">Сохранить</button>
+			<button class="close">
+				<svg class="icon icon--close-icon">
+					<use href="./img/svgsprite/sprite.symbol.svg#close-icon"></use>
+				</svg>
+			</button>
+		</div>
+	</div>
 	<script src="./js/index.bundle.js"></script>
 </body>
 
