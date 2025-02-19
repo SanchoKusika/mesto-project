@@ -7,6 +7,7 @@
 	}
 }
 .card {
+	position: relative;
 	display: block;
 	margin: 0 auto;
 	max-width: 282px;
@@ -16,12 +17,20 @@
 
 	color: #000;
 
+	&:hover {
+		.icon--trash {
+			opacity: 1;
+		}
+	}
+
 	img {
 		background-color: #999;
 		background-position: center center;
 		background-size: cover;
 		background-repeat: no-repeat;
 	}
+
+
 }
 .title-wrapper {
 	padding: 28px 18px;

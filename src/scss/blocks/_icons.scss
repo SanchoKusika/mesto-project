@@ -44,3 +44,17 @@
 		fill: #000;
 	}
 }
+
+.icon--trash {
+	position: absolute;
+	width: 18px;
+	height: 19px;
+	top: 20px;
+	right: 20px;
+	fill: #fff;
+	opacity: 0;
+
+	cursor: pointer;
+
+	transition: all 0.2s ease-in;
+}
