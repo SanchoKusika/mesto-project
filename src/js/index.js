@@ -29,22 +29,63 @@ document.addEventListener("DOMContentLoaded", function() {
 		const card = document.createElement("div");
 		card.classList.add("card");
 		card.innerHTML = `
-		  <img src="${imageUrl}" alt="${name}">
-		  <div class="title-wrapper">
-			<h3 class="title">${name}</h3>
-			<svg class="icon icon--heart">
-				<use href="./img/svgsprite/sprite.symbol.svg#heart"></use>
-			</svg>
-		  </div>
-		  <svg class="icon icon--trash">
+			<img src="${imageUrl}" alt="${name}">
+			<div class="title-wrapper">
+				<h3 class="title">${name}</h3>
+				<div class="like-wrapper">
+					<svg class="icon icon--heart">
+						<use href="./img/svgsprite/sprite.symbol.svg#heart"></use>
+					</svg>
+					<span class="like-count">0</span>
+				</div>
+			</div>
+			<svg class="icon icon--trash">
 				<use href="./img/svgsprite/sprite.symbol.svg#trash"></use>
-		  </svg>
+			</svg>
 		`;
 
 		// Удаление карточки
 		card.querySelector(".icon--trash").addEventListener("click", () => {
+			const cardId = name + imageUrl;
+			const likes = JSON.parse(localStorage.getItem("likes")) || {};
+			delete likes[cardId];
+			localStorage.setItem("likes", JSON.stringify(likes));
+
 			card.remove();
 			saveCardsToLocalStorage();
+		});
+
+		// Логика лайков
+		const likeButton = card.querySelector(".icon--heart");
+		const likeCount = card.querySelector(".like-count");
+
+		// Загрузка состояния лайков из LocalStorage
+		const cardId = name + imageUrl; // Уникальный идентификатор карточки
+		const savedLikes = JSON.parse(localStorage.getItem("likes")) || {};
+		if (savedLikes[cardId]) {
+			likeCount.textContent = savedLikes[cardId].count;
+			if (savedLikes[cardId].isLiked) {
+				likeButton.classList.add("liked");
+			}
+		}
+
+		// Обработчик клика на лайк
+		likeButton.addEventListener("click", () => {
+			let count = parseInt(likeCount.textContent);
+			const isLiked = likeButton.classList.toggle("liked");
+
+			if (isLiked) {
+				count += 1;
+			} else {
+				count -= 1;
+			}
+
+			likeCount.textContent = count;
+
+			// Сохраняем состояние лайков в LocalStorage
+			const likes = JSON.parse(localStorage.getItem("likes")) || {};
+			likes[cardId] = { count, isLiked };
+			localStorage.setItem("likes", JSON.stringify(likes));
 		});
 
 		return card;

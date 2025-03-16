@@ -49,3 +49,11 @@
 	font-weight: 900;
 	font-size: 24px;
 }
+
+.like-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+}
