@@ -192,4 +192,32 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Загружаем сохраненные данные при загрузке страницы
 	loadProfileFromLocalStorage();
 	loadCardsFromLocalStorage();
+
+	// Модальное окно для просмотра изображений
+	const imageModal = document.getElementById("image-modal");
+	const modalImage = document.getElementById("modal-image");
+	const modalTitle = document.getElementById("modal-title");
+
+	// Функция открытия модального окна с изображением
+	function openImageModal(imageUrl, title) {
+		modalImage.src = imageUrl;
+		modalImage.alt = title;
+		modalTitle.textContent = title;
+		openModal(imageModal);
+	}
+
+	// Обработчик клика на изображение карточки
+	document.body.addEventListener("click", (event) => {
+		const cardImage = event.target.closest(".card img");
+		if (cardImage) {
+			const card = cardImage.closest(".card");
+			const title = card.querySelector(".title").textContent;
+			openImageModal(cardImage.src, title);
+		}
+	});
+
+	// Закрытие модального окна с изображением
+	imageModal.querySelector(".close").addEventListener("click", () => {
+		closeModal(imageModal);
+	});
 });
